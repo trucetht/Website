@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Website.Models.Account;
 using Website.Repository;
 
+
+// have to user this since I am using Dapper, If I was using entity framework this would not neccessary.
 namespace Website.Identity
 {
     public class UserStore : IUserStore<ApplicationUserIdentity>, IUserEmailStore<ApplicationUserIdentity>, IUserPasswordStore<ApplicationUserIdentity>
