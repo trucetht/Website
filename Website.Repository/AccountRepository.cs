@@ -21,9 +21,11 @@ namespace Website.Repository
         {
             _config = config;
         }
+
+        // Open up a type, once we do establish a connection to sql server
         public async Task<IdentityResult> CreateAsync(ApplicationUserIdentity user, CancellationToken cancellationToken)
         {
-            // if asp.net core says we should cancel it then go with it
+            
             cancellationToken.ThrowIfCancellationRequested();
 
             var dataTable = new DataTable();
@@ -45,17 +47,31 @@ namespace Website.Repository
 
             using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConection")))
             {
+                // if asp.net core says we should cancel it then go with it
                 await connection.OpenAsync(cancellationToken);
-
+                
+                // continue with inserting new account
                 await connection.ExecuteAsync("Account_Insert", new { Account = dataTable.AsTableValuedParameter("dbo.AccountType")} , commandType: CommandType.StoredProcedure);
             }
-
+            // return success code
             return IdentityResult.Success;
         }
 
-        public Task<ApplicationUserIdentity> GetByUsernameAsync(string normalizedUsername, CancellationToken cancellationToken)
+        public async Task<ApplicationUserIdentity> GetByUsernameAsync(string normalizedUsername, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            cancellationToken.ThrowIfCancellationRequested();
+
+            ApplicationUserIdentity applicationUser;
+            using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+            {
+                applicationUser = await connection.QuerySingleOrDefaultAsync<ApplicationUserIdentity>(
+                    "Account_GetByusername", new { NormalizedUsername = normalizedUsername },
+                    commandType: CommandType.StoredProcedure
+                    );
+            }
+
+            return applicationUser;
+
         }
     }
 }
