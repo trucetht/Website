@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Blazor Projects\\Website\\Website.Web\\Website.Web.csproj",
+      "projectUniqueName": "C:\\BlazorProjects\\Website\\Website.Web\\Website.Web.csproj",
       "projectName": "Website.Web",
-      "projectPath": "C:\\Blazor Projects\\Website\\Website.Web\\Website.Web.csproj",
+      "projectPath": "C:\\BlazorProjects\\Website\\Website.Web\\Website.Web.csproj",
       "packagesPath": "C:\\Users\\trevo\\.nuget\\packages\\",
-      "outputPath": "C:\\Blazor Projects\\Website\\Website.Web\\obj\\",
+      "outputPath": "C:\\BlazorProjects\\Website\\Website.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
