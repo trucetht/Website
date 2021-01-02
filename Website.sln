@@ -5,9 +5,14 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website.Web", "Website.Web\Website.Web.csproj", "{4FEACC00-E922-4837-8941-870802B9C3D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website.Models", "Website.Models\Website.Models.csproj", "{DDA5F383-0F43-4EFE-B731-E22D4934A602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website.Models", "Website.Models\Website.Models.csproj", "{DDA5F383-0F43-4EFE-B731-E22D4934A602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website.Repository", "Website.Repository\Website.Repository.csproj", "{CCC3FB54-276A-4533-AE63-34BC5F95885D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website.Repository", "Website.Repository\Website.Repository.csproj", "{CCC3FB54-276A-4533-AE63-34BC5F95885D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website.Identity", "Website.Identity\Website.Identity.csproj", "{DEF5CD46-CF5F-4BE7-BE81-9007026B88AC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DDA5F383-0F43-4EFE-B731-E22D4934A602} = {DDA5F383-0F43-4EFE-B731-E22D4934A602}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +32,10 @@ Global
 		{CCC3FB54-276A-4533-AE63-34BC5F95885D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCC3FB54-276A-4533-AE63-34BC5F95885D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCC3FB54-276A-4533-AE63-34BC5F95885D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEF5CD46-CF5F-4BE7-BE81-9007026B88AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF5CD46-CF5F-4BE7-BE81-9007026B88AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF5CD46-CF5F-4BE7-BE81-9007026B88AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF5CD46-CF5F-4BE7-BE81-9007026B88AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
