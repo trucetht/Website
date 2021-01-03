@@ -9,23 +9,26 @@ using Website.Repository;
 // have to user this since I am using Dapper, If I was using entity framework this would not neccessary.
 namespace Website.Identity
 {
-    public class UserStore : IUserStore<ApplicationUserIdentity>, IUserEmailStore<ApplicationUserIdentity>, IUserPasswordStore<ApplicationUserIdentity>
+    public class UserStore :
+        IUserStore<ApplicationUserIdentity>,
+        IUserEmailStore<ApplicationUserIdentity>,
+        IUserPasswordStore<ApplicationUserIdentity>
     {
-        private readonly IAccountRepository _accountRepository;
+        private readonly IAccountRepository _accountRepsoitory;
 
         public UserStore(IAccountRepository accountRepository)
         {
-            _accountRepository = accountRepository;
+            _accountRepsoitory = accountRepository;
         }
 
         public async Task<IdentityResult> CreateAsync(ApplicationUserIdentity user, CancellationToken cancellationToken)
         {
-            return await _accountRepository.CreateAsync(user, cancellationToken);
+            return await _accountRepsoitory.CreateAsync(user, cancellationToken);
         }
 
         public async Task<ApplicationUserIdentity> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
-            return await _accountRepository.GetByUsernameAsync(normalizedUserName, cancellationToken);
+            return await _accountRepsoitory.GetByUsernameAsync(normalizedUserName, cancellationToken);
         }
 
         public Task<IdentityResult> DeleteAsync(ApplicationUserIdentity user, CancellationToken cancellationToken)
@@ -43,8 +46,6 @@ namespace Website.Identity
             throw new NotImplementedException();
         }
 
-        
-        // return email from user
         public Task<string> GetEmailAsync(ApplicationUserIdentity user, CancellationToken cancellationToken)
         {
             return Task.FromResult(user.Email);
@@ -124,10 +125,11 @@ namespace Website.Identity
         {
             throw new NotImplementedException();
         }
-        
+
         public void Dispose()
         {
-            // nothing to dispose
+            // Nothing to dispose
         }
+
     }
 }
