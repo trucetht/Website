@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\BlazorProjects\\Website\\Website.Web\\Website.Web.csproj": {}
+    "C:\\Website\\Website.Web\\Website.Web.csproj": {}
   },
   "projects": {
-    "C:\\BlazorProjects\\Website\\Website.Identity\\Website.Identity.csproj": {
+    "C:\\Website\\Website.Identity\\Website.Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BlazorProjects\\Website\\Website.Identity\\Website.Identity.csproj",
+        "projectUniqueName": "C:\\Website\\Website.Identity\\Website.Identity.csproj",
         "projectName": "Website.Identity",
-        "projectPath": "C:\\BlazorProjects\\Website\\Website.Identity\\Website.Identity.csproj",
+        "projectPath": "C:\\Website\\Website.Identity\\Website.Identity.csproj",
         "packagesPath": "C:\\Users\\trevo\\.nuget\\packages\\",
-        "outputPath": "C:\\BlazorProjects\\Website\\Website.Identity\\obj\\",
+        "outputPath": "C:\\Website\\Website.Identity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -32,11 +32,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj"
+              "C:\\Website\\Website.Models\\Website.Models.csproj": {
+                "projectPath": "C:\\Website\\Website.Models\\Website.Models.csproj"
               },
-              "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj"
+              "C:\\Website\\Website.Repository\\Website.Repository.csproj": {
+                "projectPath": "C:\\Website\\Website.Repository\\Website.Repository.csproj"
               }
             }
           }
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj": {
+    "C:\\Website\\Website.Models\\Website.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj",
+        "projectUniqueName": "C:\\Website\\Website.Models\\Website.Models.csproj",
         "projectName": "Website.Models",
-        "projectPath": "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj",
+        "projectPath": "C:\\Website\\Website.Models\\Website.Models.csproj",
         "packagesPath": "C:\\Users\\trevo\\.nuget\\packages\\",
-        "outputPath": "C:\\BlazorProjects\\Website\\Website.Models\\obj\\",
+        "outputPath": "C:\\Website\\Website.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -139,14 +139,14 @@
         }
       }
     },
-    "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj": {
+    "C:\\Website\\Website.Repository\\Website.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj",
+        "projectUniqueName": "C:\\Website\\Website.Repository\\Website.Repository.csproj",
         "projectName": "Website.Repository",
-        "projectPath": "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj",
+        "projectPath": "C:\\Website\\Website.Repository\\Website.Repository.csproj",
         "packagesPath": "C:\\Users\\trevo\\.nuget\\packages\\",
-        "outputPath": "C:\\BlazorProjects\\Website\\Website.Repository\\obj\\",
+        "outputPath": "C:\\Website\\Website.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -167,8 +167,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj"
+              "C:\\Website\\Website.Models\\Website.Models.csproj": {
+                "projectPath": "C:\\Website\\Website.Models\\Website.Models.csproj"
               }
             }
           }
@@ -219,14 +219,14 @@
         }
       }
     },
-    "C:\\BlazorProjects\\Website\\Website.Services\\Website.Services.csproj": {
+    "C:\\Website\\Website.Services\\Website.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BlazorProjects\\Website\\Website.Services\\Website.Services.csproj",
+        "projectUniqueName": "C:\\Website\\Website.Services\\Website.Services.csproj",
         "projectName": "Website.Services",
-        "projectPath": "C:\\BlazorProjects\\Website\\Website.Services\\Website.Services.csproj",
+        "projectPath": "C:\\Website\\Website.Services\\Website.Services.csproj",
         "packagesPath": "C:\\Users\\trevo\\.nuget\\packages\\",
-        "outputPath": "C:\\BlazorProjects\\Website\\Website.Services\\obj\\",
+        "outputPath": "C:\\Website\\Website.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -247,8 +247,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj"
+              "C:\\Website\\Website.Models\\Website.Models.csproj": {
+                "projectPath": "C:\\Website\\Website.Models\\Website.Models.csproj"
               }
             }
           }
@@ -307,14 +307,14 @@
         }
       }
     },
-    "C:\\BlazorProjects\\Website\\Website.Web\\Website.Web.csproj": {
+    "C:\\Website\\Website.Web\\Website.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BlazorProjects\\Website\\Website.Web\\Website.Web.csproj",
+        "projectUniqueName": "C:\\Website\\Website.Web\\Website.Web.csproj",
         "projectName": "Website.Web",
-        "projectPath": "C:\\BlazorProjects\\Website\\Website.Web\\Website.Web.csproj",
+        "projectPath": "C:\\Website\\Website.Web\\Website.Web.csproj",
         "packagesPath": "C:\\Users\\trevo\\.nuget\\packages\\",
-        "outputPath": "C:\\BlazorProjects\\Website\\Website.Web\\obj\\",
+        "outputPath": "C:\\Website\\Website.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -335,17 +335,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\BlazorProjects\\Website\\Website.Identity\\Website.Identity.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Identity\\Website.Identity.csproj"
+              "C:\\Website\\Website.Identity\\Website.Identity.csproj": {
+                "projectPath": "C:\\Website\\Website.Identity\\Website.Identity.csproj"
               },
-              "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Models\\Website.Models.csproj"
+              "C:\\Website\\Website.Models\\Website.Models.csproj": {
+                "projectPath": "C:\\Website\\Website.Models\\Website.Models.csproj"
               },
-              "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Repository\\Website.Repository.csproj"
+              "C:\\Website\\Website.Repository\\Website.Repository.csproj": {
+                "projectPath": "C:\\Website\\Website.Repository\\Website.Repository.csproj"
               },
-              "C:\\BlazorProjects\\Website\\Website.Services\\Website.Services.csproj": {
-                "projectPath": "C:\\BlazorProjects\\Website\\Website.Services\\Website.Services.csproj"
+              "C:\\Website\\Website.Services\\Website.Services.csproj": {
+                "projectPath": "C:\\Website\\Website.Services\\Website.Services.csproj"
               }
             }
           }

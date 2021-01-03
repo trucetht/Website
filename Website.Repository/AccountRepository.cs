@@ -22,14 +22,12 @@ namespace Website.Repository
             _config = config;
         }
 
-        // Open up a type, once we do establish a connection to sql server
         public async Task<IdentityResult> CreateAsync(ApplicationUserIdentity user, CancellationToken cancellationToken)
         {
-            
             cancellationToken.ThrowIfCancellationRequested();
 
             var dataTable = new DataTable();
-            dataTable.Columns.Add("Username" , typeof(string));
+            dataTable.Columns.Add("Username", typeof(string));
             dataTable.Columns.Add("NormalizedUsername", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
             dataTable.Columns.Add("NormalizedEmail", typeof(string));
@@ -45,15 +43,14 @@ namespace Website.Repository
                 user.PasswordHash
                 );
 
-            using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConection")))
+            using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
             {
-                // if asp.net core says we should cancel it then go with it
                 await connection.OpenAsync(cancellationToken);
-                
-                // continue with inserting new account
-                await connection.ExecuteAsync("Account_Insert", new { Account = dataTable.AsTableValuedParameter("dbo.AccountType")} , commandType: CommandType.StoredProcedure);
+
+                await connection.ExecuteAsync("Account_Insert",
+                    new { Account = dataTable.AsTableValuedParameter("dbo.AccountType") }, commandType: CommandType.StoredProcedure);
             }
-            // return success code
+
             return IdentityResult.Success;
         }
 
@@ -62,16 +59,18 @@ namespace Website.Repository
             cancellationToken.ThrowIfCancellationRequested();
 
             ApplicationUserIdentity applicationUser;
+
             using (var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
             {
+                await connection.OpenAsync(cancellationToken);
+
                 applicationUser = await connection.QuerySingleOrDefaultAsync<ApplicationUserIdentity>(
-                    "Account_GetByusername", new { NormalizedUsername = normalizedUsername },
+                    "Account_GetByUsername", new { NormalizedUsername = normalizedUsername },
                     commandType: CommandType.StoredProcedure
                     );
             }
 
             return applicationUser;
-
         }
     }
 }
