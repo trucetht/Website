@@ -6,7 +6,7 @@ using Website.Models.BlogComment;
 
 namespace Website.Repository
 {
-    interface IBlogCommentRepository
+    public interface IBlogCommentRepository
     {
         public Task<BlogComment> UpsertAsync(BlogCommentCreate blogCommentCreate, int applicationUserId);
 

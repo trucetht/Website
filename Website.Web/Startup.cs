@@ -1,14 +1,24 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Website.Identity;
+using Website.Models.Account;
 using Website.Models.Settings;
+using Website.Repository;
+using Website.Services;
+using Website.Web.Extensions;
 
 namespace Website.Web
 {
@@ -16,6 +26,7 @@ namespace Website.Web
     { public IConfiguration Configuration { get; }
         public Startup(IConfiguration config)
         {
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             Configuration = config;
         }
 
@@ -24,6 +35,55 @@ namespace Website.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CloudinaryOptions>(Configuration.GetSection("CloudinaryOptions"));
+
+            // want repositories to stay the same as the request
+            // able to grab what we want from the interface by, 
+            // refrencing where we need to get the information
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IPhotoService, PhotoService>();
+
+            services.AddScoped<IBlogRepository, BlogRepository>();
+            services.AddScoped<IBlogCommentRepository, BlogCommentRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IPhotoRepository, PhotoRepository>();
+
+            // implementing our own ways of storing users
+            services.AddIdentityCore<ApplicationUserIdentity>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            })
+                .AddUserStore<UserStore>()
+                .AddDefaultTokenProviders()
+                .AddSignInManager<SignInManager<ApplicationUserIdentity>>();
+
+            services.AddControllers();
+            services.AddCors();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer
+                (
+                    options =>
+                    {
+                        options.RequireHttpsMetadata = false;
+                        options.SaveToken = true;
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+                            ValidIssuer = Configuration["Jwt:Issuer"],
+                            ValidAudience = Configuration["Jwt:Issuer"],
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
+                            ClockSkew = TimeSpan.Zero
+                        };
+                    }
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,14 +94,25 @@ namespace Website.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigureExceptionHandler();
+
             app.UseRouting();
+
+            if (env.IsDevelopment())
+            {
+                app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            }
+            else
+            {
+                app.UseCors();
+            }
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }

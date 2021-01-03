@@ -14,7 +14,7 @@ using Website.Models.Photo;
 
 namespace Website.Repository
 {
-    public class PhotoRepository : IAccountRepository
+    public class PhotoRepository : IPhotoRepository
     {
         private readonly IConfiguration _config;
 

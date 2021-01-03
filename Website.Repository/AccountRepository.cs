@@ -12,7 +12,7 @@ using Website.Models.Account;
 
 namespace Website.Repository
 {
-    class AccountRepository : IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
 
         private readonly IConfiguration _config;
